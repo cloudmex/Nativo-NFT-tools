@@ -1,9 +1,9 @@
 {
-  "name": "sputnikdao",
+  "name": "nativonft",
   "version": "0.2.0",
-  "description": "Sputnik DAO CLI",
-  "main": "dist/sputnikdao-util.js",
-  "bin": "dist/sputnikdao-util.js",
+  "description": "Nativo NFT CLI",
+  "main": "dist/nativonft-util.js",
+  "bin": "dist/nativonft-util.js",
   "type": "commonjs",
   "scripts": {
     "build": "tsc -b -verbose",

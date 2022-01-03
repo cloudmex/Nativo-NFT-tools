@@ -7,6 +7,7 @@ import { getTokenBalance, stakingContract, getStakingContract, setStorageStaking
 import { daoCreate, daoDeployCode, daoGetPolicy, daoInfo, daoUI, daoListHash, daoListProposals,  daoRemoveBlob, daoVoteApprove, daoVoteUnapprove, daoVoteRemove, login, } from "./commands/dao.js";
 import { daoProposePayout, daoProposeUpgrade, daoProposeSelfUpgrade, daoProposeCall,daoProposeCouncil, daoProposePolicy, daoProposeTokenFarm, daoProposePoll } from "./commands/proposals.js";
 import { daoGetDaoList, factoryDeployCode } from "./commands/factory.js";
+import { mintTestNFT } from "./commands/nfts";
 import {daoAddBounty, daoGetBounties,daoBountyClaim, daoBountyGiveup, daoBountyDone} from "./commands/bounties.js";
 
 main(process.argv, process.env);
@@ -21,6 +22,18 @@ async function main(argv: string[], _env: Record<string, unknown>) {
     .option("-n, --network <network>", "Pick a network: testnet/mainnet","testnet")
     .action(login);*/
 
+  program
+    .command("mint-test-nft")
+    .description("Create a new Sputnik V2 DAO")
+    .option("--policy <policy>", "Asign a policy")
+    .option("--bond <bond>", "Asign bond","1000000000000000000000000")
+    .option("--metadata <meta>", "Asign metadata","")
+    .option("--accountId <accountId>", "Use account as signer")
+    .option("--factory <factory>", "Factory deployed")
+    .option("--purpose <purpose>", "Give a purpose to DAO","Sputnik V2 DAO")
+    .option("-n, --network <network>", "Pick a network: testnet/mainnet","testnet")
+    .action(mintTestNFT);
+    
   program
     .command("create <name> <council>")
     .description("Create a new Sputnik V2 DAO")
